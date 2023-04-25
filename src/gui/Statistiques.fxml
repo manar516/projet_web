@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="statistiquePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1234.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.StatistiquesController">
+   <children>
+      <LineChart fx:id="lineChartDon" layoutX="260.0" layoutY="134.0" prefHeight="491.0" prefWidth="714.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </LineChart>
+      <Button fx:id="btnReturnCharite" layoutX="57.0" layoutY="44.0" mnemonicParsing="false" onAction="#open_listCharite" prefHeight="34.0" prefWidth="86.0" styleClass="btn" stylesheets="@dashboard.css" text="Return" />
+   </children>
+</AnchorPane>

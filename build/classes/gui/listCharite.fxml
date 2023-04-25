@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="listCharitePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#open_addCharite" prefHeight="760.0" prefWidth="1234.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ListChariteController">
+   <children>
+      <TableView fx:id="tableCharite" editable="true" layoutX="110.0" layoutY="160.0" prefHeight="538.0" prefWidth="1024.0" stylesheets="@dashboard.css">
+        <columns>
+          <TableColumn fx:id="CellNomCharite" prefWidth="341.60003662109375" text="Nom Charite" />
+          <TableColumn fx:id="CellLieuCharite" prefWidth="283.199951171875" text="Lieu Charite" />
+            <TableColumn fx:id="CellTypeCharite" prefWidth="398.4000244140625" text="Type Charite" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnAjoutCharite" layoutX="206.0" layoutY="64.0" mnemonicParsing="false" onAction="#open_addCharite" prefHeight="38.0" prefWidth="174.0" styleClass="btn" stylesheets="@dashboard.css" text="Ajouter Charite" />
+      <Button fx:id="btnDeleteCharite" layoutX="849.0" layoutY="63.0" mnemonicParsing="false" onAction="#supprimerCharite" prefHeight="38.0" prefWidth="74.0" styleClass="btn" stylesheets="@dashboard.css" text="Delete" />
+      <TextField fx:id="txtSearchCharite" layoutX="478.0" layoutY="64.0" prefHeight="38.0" prefWidth="254.0" promptText="Search..." styleClass="search" stylesheets="@dashboard.css" />
+      <Button fx:id="btnStat" layoutX="983.0" layoutY="63.0" mnemonicParsing="false" onAction="#open_Stat" prefHeight="38.0" prefWidth="124.0" styleClass="btn" stylesheets="@dashboard.css" text="Statistiques" />
+   </children>
+</AnchorPane>

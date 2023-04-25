@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="listDonPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1234.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ListDonController">
+   <children>
+      <TableView fx:id="tableDon" editable="true" layoutX="110.0" layoutY="160.0" prefHeight="538.0" prefWidth="1024.0" stylesheets="@dashboard.css">
+        <columns>
+          <TableColumn fx:id="CellCharite" prefWidth="174.3999786376953" text="Charite" />
+          <TableColumn fx:id="CellType" prefWidth="194.40005493164062" text="Type" />
+            <TableColumn fx:id="CellDescription" prefWidth="436.0000305175781" text="Description" />
+            <TableColumn fx:id="CellUser" prefWidth="217.5999755859375" text="User" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnAjoutDon" layoutX="230.0" layoutY="64.0" mnemonicParsing="false" onAction="#open_addDon" prefHeight="37.0" prefWidth="150.0" styleClass="btn" stylesheets="@dashboard.css" text="Ajouter Don" />
+      <Button fx:id="btnDeleteDon" layoutX="873.0" layoutY="63.0" mnemonicParsing="false" onAction="#supprimerDon" prefHeight="38.0" prefWidth="74.0" styleClass="btn" stylesheets="@dashboard.css" text="Delete" />
+      <TextField fx:id="txtSearchDon" layoutX="518.0" layoutY="64.0" prefHeight="38.0" prefWidth="254.0" promptText="Search..." styleClass="search" stylesheets="@dashboard.css" />
+      <Button fx:id="btnCheckDon" layoutX="989.0" layoutY="64.0" mnemonicParsing="false" onAction="#checkDon" prefHeight="38.0" prefWidth="74.0" styleClass="btn" stylesheets="@dashboard.css" text="Check" />
+   </children>
+</AnchorPane>

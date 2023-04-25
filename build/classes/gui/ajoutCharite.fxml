@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="addCharitePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1234.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjoutChariteController">
+   <children>
+      <Button fx:id="btnAddCharite" layoutX="512.0" layoutY="543.0" mnemonicParsing="false" onAction="#AjoutCharite" prefHeight="34.0" prefWidth="66.0" styleClass="btn" stylesheets="@dashboard.css" text="Add" />
+      <Button fx:id="btnClearCharite" layoutX="420.0" layoutY="544.0" mnemonicParsing="false" onAction="#clearFieldsCharite" prefHeight="34.0" prefWidth="77.0" styleClass="btn" stylesheets="@dashboard.css" text="Clear" />
+      <Label layoutX="305.0" layoutY="146.0" prefHeight="52.0" prefWidth="216.0" text="Ajouter une Charité" textFill="#07ac04">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnReturnCharite" layoutX="47.0" layoutY="34.0" mnemonicParsing="false" onAction="#return_ListCharite" prefHeight="34.0" prefWidth="86.0" styleClass="btn" stylesheets="@dashboard.css" text="Return" />
+      <TextField fx:id="txtNomCharite" layoutX="365.0" layoutY="323.0" prefHeight="26.0" prefWidth="216.0" promptText="Nom Charite" />
+      <Label layoutX="263.0" layoutY="328.0" prefHeight="18.0" prefWidth="86.0" styleClass="label-ajout" stylesheets="@dashboard.css" text="Nom Charite :" />
+      <Label layoutX="263.0" layoutY="379.0" prefHeight="18.0" prefWidth="86.0" styleClass="label-ajout" stylesheets="@dashboard.css" text="Lieu Charite :" />
+      <TextField fx:id="txtLieuCharite" layoutX="365.0" layoutY="375.0" prefHeight="26.0" prefWidth="216.0" promptText="Lieu Charite" />
+      <Label layoutX="264.0" layoutY="429.0" prefHeight="18.0" prefWidth="86.0" styleClass="label-ajout" stylesheets="@dashboard.css" text="Type Charite :" />
+      <TextField fx:id="txtTypeCharite" layoutX="366.0" layoutY="425.0" prefHeight="26.0" prefWidth="216.0" promptText="Type Charite" />
+   </children>
+</AnchorPane>
