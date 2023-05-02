@@ -84,10 +84,10 @@ public class ChariteService implements CrudCharite<Charite>{
     public List<Charite> Afficher() {
         List<Charite> list = new ArrayList<>();
 
-        try {
+           try {
             String req = "SELECT * from charite";
             Statement st = conx.createStatement();
-            ResultSet rs = st.executeQuery(req);
+            ResultSet rs = stm.executeQuery(req);
             while (rs.next()) {
                 list.add(new Charite(rs.getInt("id_charite"), rs.getString("nom_charite"), 
                         rs.getString("lieu_charite"), rs.getString("type_charite")));

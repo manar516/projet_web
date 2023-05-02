@@ -5,6 +5,7 @@
  */
 package services;
 
+import entities.Charite;
 import entities.CrudDon;
 import entities.Don;
 import java.sql.Connection;
@@ -91,8 +92,24 @@ public class DonService implements CrudDon<Don>{
             Statement st = conx.createStatement();
             ResultSet rs = st.executeQuery(req);
             while (rs.next()) {
-                list.add(new Don(rs.getInt("id_dons"), rs.getInt("id_user"), 
-                        rs.getInt("id_charite"), rs.getString("type_dons"), rs.getString("description_dons")));
+                Don don=new Don();
+                don.setId_user(rs.getInt("id_dons"));
+                don.setDescription_dons(rs.getString("description_dons"));
+                don.setId_user(rs.getInt("id_user"));
+                don.setType_dons(rs.getString("type_dons"));
+                int idChatite= rs.getInt("id_charite");
+               
+            Statement stm = conx.createStatement();
+            ResultSet rst = st.executeQuery("SELECT * from charite where id="+idChatite);
+            Charite charite=new Charite();
+                 if(rst.next()) {
+                     
+                     charite.setNom_charite(rst.getString("nom_charite"));
+                 }
+                
+                don.setCharite(charite);
+                
+                list.add(don);
             }
         } catch (SQLException e) {
             System.err.println(e.getMessage());
@@ -134,6 +151,7 @@ public class DonService implements CrudDon<Don>{
         return list;
     }
 
+  
     
     
 }

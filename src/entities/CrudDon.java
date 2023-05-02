@@ -11,6 +11,7 @@ import java.util.List;
 /**
  *
  * @author ASUS
+ * @param <D>
  */
 public interface CrudDon<D> {
     

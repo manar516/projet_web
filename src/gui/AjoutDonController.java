@@ -155,10 +155,10 @@ public class AjoutDonController implements Initializable {
     }
     
     
-    void send_SMS (){
+      void send_SMS (){
         // Initialisation de la bibliothèque Twilio avec les informations de votre compte
         String ACCOUNT_SID = "ACb30ed969939bf77a1576ebb470a71acc";
-        String AUTH_TOKEN = "8e3370ad77818d0a634b678cef99f4f4";
+        String AUTH_TOKEN = "805d0f0521e3259f10631c183cc7faad";
              
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 

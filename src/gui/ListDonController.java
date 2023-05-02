@@ -5,7 +5,12 @@
  */
 package gui;
 
+import static com.itextpdf.text.pdf.BidiOrder.S;
+import com.sun.rowset.internal.Row;
 import entities.Don;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -34,10 +39,23 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.FileChooser;
 import javafx.util.converter.IntegerStringConverter;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.sl.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import services.DonService;
+import org.apache.poi.ss.usermodel.Cell;
+
+
+
+
 
 /**
  * FXML Controller class
@@ -52,6 +70,10 @@ public class ListDonController implements Initializable {
     
     @FXML
     private AnchorPane listDonPane;
+    @FXML
+    private Button btnCheckDon;
+    /*@FXML
+    private Button btnAddDon;*/
     
     @FXML
     void open_addDon(ActionEvent event) throws IOException {
@@ -63,6 +85,7 @@ public class ListDonController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         AfficherDon();
+        System.out.println("testt");
     }    
     
     
@@ -100,6 +123,8 @@ public class ListDonController implements Initializable {
         ds.Afficher().stream().forEach((p) -> {
             data.add(p);
         });
+     
+        
         CellCharite.setCellValueFactory(new PropertyValueFactory<>("id_charite"));
         CellCharite.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
         CellCharite.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Don, Integer>>() {
@@ -215,6 +240,7 @@ public class ListDonController implements Initializable {
             int idU = tableDon.getSelectionModel().getSelectedItem().getId_user();
             //System.out.println(idU);
             List<Don> listeDonUser=ds.findById(idU);
+            
             int count=listeDonUser.size();
             if(count>5){
                 Alert alertP = new Alert(Alert.AlertType.CONFIRMATION);
@@ -234,7 +260,8 @@ public class ListDonController implements Initializable {
     
     public DonService ds = new DonService();
     
-    public void searchDon() throws SQLException {    
+    public void searchDon() throws SQLException {   
+        
         FilteredList<Don> filteredData = new FilteredList<>(FXCollections.observableArrayList(ds.Afficher()), p -> true);
         txtSearchDon.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate(donn -> {
@@ -258,12 +285,30 @@ public class ListDonController implements Initializable {
         sortedData.comparatorProperty().bind(tableDon.comparatorProperty());
         tableDon.setItems(sortedData);
     }
+
+   
+   
+        
+ @FXML
+    private void open_addCharite(MouseEvent event) {
+    }
+}
+        
+        
+        
+        
+        
+        
+        
+    
+
+    
     
     
     
 
     
-}
+
 
 
 

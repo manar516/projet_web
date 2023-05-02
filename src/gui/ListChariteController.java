@@ -5,10 +5,22 @@
  */
 package gui;
 
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import entities.Charite;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -31,6 +43,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import services.ChariteService;
 
@@ -47,6 +60,10 @@ public class ListChariteController implements Initializable {
     
     @FXML
     private AnchorPane listCharitePane;
+    @FXML
+    private Button btnStat;
+    @FXML
+    private Button btnPDF;
     
     @FXML
     void open_addCharite(ActionEvent event) throws IOException {
@@ -65,6 +82,7 @@ public class ListChariteController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        System.out.println("test");
         AfficherCharite();
     }   
     
@@ -211,6 +229,73 @@ public class ListChariteController implements Initializable {
         sortedData.comparatorProperty().bind(tableCharite.comparatorProperty());
         tableCharite.setItems(sortedData);
     }
+
+    
+   
+        @FXML
+         private void pdf(ActionEvent event)throws DocumentException, FileNotFoundException, IOException  {
+       
+
+        long millis = System.currentTimeMillis();
+        java.sql.Date DateRapport = new java.sql.Date(millis);
+
+        String DateLyoum = new SimpleDateFormat("yyyyMMddHHmmss", Locale.ENGLISH).format(DateRapport);//yyyyMMddHHmmss
+        System.out.println("Date d'aujourdhui : " + DateLyoum);
+
+        com.itextpdf.text.Document document = new com.itextpdf.text.Document();
+
+        try {
+            PdfWriter.getInstance(document, new FileOutputStream(String.valueOf(DateLyoum + ".pdf")));//yyyy-MM-dd
+            document.open();
+            Paragraph ph1 = new Paragraph("Rapport Pour les charites :" + DateRapport);
+            Paragraph ph2 = new Paragraph(".");
+            PdfPTable table = new PdfPTable(4);
+
+            //On créer l'objet cellule.
+            PdfPCell cell;
+
+            //contenu du tableau.
+            table.addCell("ID charite");
+            table.addCell(" Nom charite");
+            table.addCell("lieu");
+            table.addCell("type charite");
+            Charite r = new Charite();
+            cs.Afficher().forEach(e
+                    -> {
+                table.setHorizontalAlignment(Element.ALIGN_CENTER);
+                table.addCell(String.valueOf(e.getId_charite()));
+                table.addCell(String.valueOf(e.getNom_charite()));
+                table.addCell(String.valueOf(e.getLieu_charite()));
+                table.addCell(String.valueOf(e.getType_charite()));
+
+            }
+            );
+            document.add(ph1);
+            document.add(ph2);
+            document.add(table);
+            //  document.addAuthor("Bike");
+            // AlertDialog.showNotification("Creation PDF ", "Votre fichier PDF a ete cree avec success", AlertDialog.image_checked);
+        } catch (DocumentException | FileNotFoundException e) {
+            System.out.println(e);
+        }
+        document.close();
+
+        ///Open FilePdf
+        File file = new File(DateLyoum + ".pdf");
+        Desktop desktop = Desktop.getDesktop();
+        if (file.exists()) //checks file exists or not  
+        {
+            desktop.open(file); //opens the specified file   
+        }
+    }
+
+   
+    
+
+   /* @FXML
+    private void open_addCharite(MouseEvent event) {
+        
+    }*/
     
     
     

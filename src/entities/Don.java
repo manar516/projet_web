@@ -15,6 +15,7 @@ public class Don {
     private int id_charite;
     private String type_dons;
     private String description_dons;
+    private Charite charite;
 
     public Don() {
     }
@@ -84,6 +85,19 @@ public class Don {
 
     public void setDescription_dons(String description_dons) {
         this.description_dons = description_dons;
+    }
+
+    public Charite getCharite() {
+        return charite;
+    }
+
+    public void setCharite(Charite charite) {
+        this.charite = charite;
+    }
+
+    @Override
+    public String toString() {
+        return "Don{" + "id_dons=" + id_dons + ", id_user=" + id_user + ", id_charite=" + id_charite + ", type_dons=" + type_dons + ", description_dons=" + description_dons + ", charite=" + charite + '}';
     }
     
     

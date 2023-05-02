@@ -20,6 +20,7 @@ public class PidevJavaApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
+       // Parent root = FXMLLoader.load(getClass().getResource("listChariteFront.fxml"));
         
         Scene scene = new Scene(root);
         

@@ -14,7 +14,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -31,6 +30,8 @@ public class DashboardController implements Initializable {
     private Button btnCharite;
     @FXML
     private AnchorPane viewPages;
+    @FXML
+    private Button btnDon1;
     
     
     @FXML

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="listChariteFront" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1179.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ListChariteFrontController">
+   <children>
+      <ImageView fx:id="background" fitHeight="767.0" fitWidth="1370.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/charitebg.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="59.0" layoutY="138.0" text="les charités disponibles" textFill="#14a61d">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="59.0" layoutY="76.0" text="NOS SERVICES POUR VOUS" textFill="#18710e">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="57.0" layoutY="93.0" text="Vous pouvez consulter" textFill="#14a61d">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="36.0" fitWidth="46.0" layoutX="14.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-go-back-64.png" />
+         </image>
+      </ImageView>
+      <HBox fx:id="hbox" layoutX="57.0" layoutY="355.0" prefHeight="370.0" prefWidth="998.0" styleClass="hbox" stylesheets="@listactivitefront.css">
+         <children>
+            <HBox fx:id="vbox" prefHeight="367.0" prefWidth="951.0">
+               <children>
+                  <GridPane fx:id="grid" prefHeight="370.0" prefWidth="0.0" styleClass="grid" stylesheets="@listactivitefront.css">
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                     </rowConstraints>
+                  </GridPane>
+                  <Pagination fx:id="pag" maxPageIndicatorCount="3" prefHeight="290.0" prefWidth="820.0" style="-fx-color: #14a61d;">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin></Pagination>
+               </children>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </HBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
